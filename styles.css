@@ -243,7 +243,11 @@ a{
     padding-bottom: 5px;
 }
 
-.menuProjetos nav ul li a.active,
+.menuProjetos nav ul li a.active{
+    color: #0093A3; /* Cor azul esverdeado quando selecionado */
+    font-weight: bold;
+}
+
 .menuProjetos nav ul li a:hover {
     color: #0093A3; /* Cor azul esverdeado quando selecionado */
     font-weight: bold;
