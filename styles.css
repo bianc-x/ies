@@ -246,12 +246,7 @@ a{
 .menuProjetos nav ul li a.active{
     color: #0093A3; /* Cor azul esverdeado quando selecionado */
     font-weight: bold;
-    content: "";
-    display: block;
-    width: 100%;
-    height: 3px;
-    background-color: #002B36; /* Cor da linha */
-    margin-top: 5px;
+    
 }
 
 .menuProjetos nav ul li a:hover {
