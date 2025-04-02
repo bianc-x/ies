@@ -420,13 +420,20 @@ a{
     margin: 0.6rem 0.8rem 0 0.8rem; 
     background: white;
     display: flex;
+    align-items: center;
     justify-content: center;
     padding-bottom: 0.3rem;
     
 }
 
 .retImg img{
+    display: flex;
     margin-top: 0.6rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 23rem;
+    height: 16rem;
 }
 
 .retTxt{
@@ -457,16 +464,17 @@ a{
 }
 
 .retangulo2 img{
-    margin: 0.689rem 0.8rem;
+    margin: 0.689rem 1.2rem;
+    text-align: center;
 }
 
 .retangulo2 h3{
     color: #FFF;
-    margin-left: 0.9rem;
+    margin-left: 1.4rem;
 }
 
 .retangulo2 p{
-    margin-left: 0.9rem;
+    margin-left: 1.4rem;
     width: 15rem;
 }
 
@@ -484,16 +492,17 @@ a{
 }
 
 .retangulo3 img{
-    margin: 0.8rem 0.8rem;
+    margin: 0.8rem 1rem;
+    text-align: center;
 }
 
 .retangulo3 h3{
     color: #FFF;
-    margin-left: 0.9rem;
+    margin-left: 1.2rem;
 }
 
 .retangulo3 p{
-    margin-left: 0.9rem;
+    margin-left: 1.2rem;
     width: 15rem;
 }
 

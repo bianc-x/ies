@@ -51,20 +51,19 @@
             <div class="menuProjetos">
                 <nav>
                     <ul>
-                        <li><a href="aca.html">Aventura e Cultura nas Alturas</a></li>
-                        <li><a href="mcp.html">Mulheres Construindo o Presente</a></li>
-                        <!-- <li><a href="construcao.html">Projeto X "Multiplicando o Bem"</a></li> -->
+                        <li><a href="#" id="tituloProjeto"></a></li>
                     </ul>
                 </nav>
             </div>
-
+            
             <div class="sobreImgProj">
-                <img src="public/images/get-image-221.png" alt="">
+                <img id="imagemProjeto" src="" alt="">
                 <div class="sobreImgProjTxt">
-                    <p>O projeto ACA - Aventura e Cultura nas Alturas é destinado a jovens em situações de vulnerabilidade que enfrentam dificuldades em acessar atividades de lazer e experiências culturais. Nosso objetivo é proporcionar um ambiente seguro e acolhedor onde esses jovens possam desenvolver habilidades sociais, aumentar a autoestima e expandir seus conhecimentos com descontração e lazer.</p>
-                    <a href="aca.html"><button class="SaibaMais">Saiba Mais</button></a>
+                    <p id="textoProjeto"></p>
+                    <a id="linkProjeto" href=""><button class="SaibaMais">Saiba Mais</button></a>
                 </div>
             </div>
+            
 
 
             <div class="botaoLateral">
@@ -77,7 +76,7 @@
             <div class="retangulos">
                 <div class="retButton">
                     <div class="retangulo1">
-                        <div class="retImg"><img src="public/images/get-image-22.png" alt=""></div>
+                        <div class="retImg"><img src="public/images/logo ies.jpg" alt=""></div>
                         <div class="retTxt">
                             <h3>Bem-vindo ao Instituto de Empreendedorismo Socioambiental</h3>
                             <p>Uma organização sem fins lucrativos que promove o desenvolvimento sustentável, a inclusão social e o empreendedorismo em âmbito nacional.</p>
@@ -241,62 +240,40 @@
 
         <script>
             document.addEventListener("DOMContentLoaded", function () {
-                const projetos = {
-                    "aca": {
+                const projetos = [
+                    {
+                        titulo: "Aventura e Cultura nas Alturas",
                         texto: "O projeto ACA - Aventura e Cultura nas Alturas é destinado a jovens em situações de vulnerabilidade que enfrentam dificuldades em acessar atividades de lazer e experiências culturais. Nosso objetivo é proporcionar um ambiente seguro e acolhedor onde esses jovens possam desenvolver habilidades sociais, aumentar a autoestima e expandir seus conhecimentos com descontração e lazer.",
                         link: "aca.html",
                         imagem: "public/images/get-image-221.png"
                     },
-                    "mcp": {
+                    {
+                        titulo: "Mulheres Construindo o Presente",
                         texto: "O projeto Mulheres Construindo o Presente tem como objetivo principal capacitar mulheres para atuarem no setor da construção civil, promovendo a autonomia econômica e a inclusão social. Além da formação técnica e prática, o projeto oferece suporte emocional e comportamental, abordando temas como saúde mental, direitos das mulheres e enfrentamento de preconceitos. Dessa forma, proporciona novas oportunidades e contribui para a construção de um presente mais justo e igualitário.",
                         link: "mcp.html",
                         imagem: "public/images/mcp logo.svg"
                     }
-                };
+                ];
 
-                let projetoAtual = "aca"; // Começamos com o projeto ACA
+                let indice = 0;
 
-                function alternarProjetos() {
-                    const projeto = projetos[projetoAtual];
+                function alternarProjeto() {
+                    const projeto = projetos[indice];
 
-                    // Atualiza o conteúdo do projeto
-                    document.querySelector(".sobreImgProjTxt p").textContent = projeto.texto;
-                    document.querySelector(".sobreImgProjTxt a").setAttribute("href", projeto.link);
-                    document.querySelector(".sobreImgProj img").setAttribute("src", projeto.imagem);
+                    document.getElementById("tituloProjeto").textContent = projeto.titulo;
+                    document.getElementById("textoProjeto").textContent = projeto.texto;
+                    document.getElementById("linkProjeto").setAttribute("href", projeto.link);
+                    document.getElementById("imagemProjeto").setAttribute("src", projeto.imagem);
 
-                    // Atualiza o título ativo
-                    document.querySelectorAll(".menuProjetos nav ul li a").forEach(link => {
-                        link.classList.remove("active"); // Remove a classe active de todos os links
-                    });
-
-                    // Adiciona a classe active ao link do projeto atual
-                    const linkAtivo = document.querySelector(`.menuProjetos nav ul li a[href='${projeto.link}']`);
-                    if (linkAtivo) {
-                        linkAtivo.classList.add("active");
-                    }
-
-                    // Alterna o projeto para o próximo
-                    projetoAtual = projetoAtual === "aca" ? "mcp" : "aca";
+                    // Alterna para o próximo projeto no array
+                    indice = (indice + 1) % projetos.length;
                 }
 
-                // Alterna os projetos a cada 20 segundos
-                setInterval(alternarProjetos, 20000);
+                // Inicializa o primeiro projeto
+                alternarProjeto();
 
-                // Exibe o projeto atual
-                alternarProjetos();
-
-                // Evento de clique nos links do menu
-                document.querySelectorAll(".menuProjetos nav ul li a").forEach(link => {
-                    link.addEventListener("click", function (event) {
-                        event.preventDefault();
-                        const projetoSelecionado = this.getAttribute("href").replace(".html", "");
-
-                        if (projetos[projetoSelecionado]) {
-                            projetoAtual = projetoSelecionado; // Troca o projeto atual
-                            alternarProjetos(); // Atualiza o conteúdo
-                        }
-                    });
-                });
+                // Alterna a cada 15 segundos
+                setInterval(alternarProjeto, 15000);
             });
         </script>
 
